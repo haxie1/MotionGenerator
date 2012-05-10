@@ -1,10 +1,20 @@
 #!/usr/bin/env macruby
 require "../lib/OBJCHeaderToRubyGenerator.rb"
 
+def usage
+    puts "motiongenerator [path to objective-c header] [path for generated ruby class file]"
+    puts "motiongenerator ~/Project/ObjcProject/Foo.h ~/Project/RubyMotionProject/app"
+    exit 1
+end
+
 if ARGV.first
-    file = ARGV[0]
-    dest = ARGV[1]
-    gen = OBJCHeaderToRubyGenerator.new(file, dest)
+    
+    header = ARGV.first
+    usage if header == nil
+    dest = ARGV.last
+    usage if dest == nil
+    
+    gen = OBJCHeaderToRubyGenerator.new(header, dest)
     gen.generate
     exit 0
 end

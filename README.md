@@ -43,3 +43,6 @@ Gotchas:
 * protocols defined in the header are not supported (yet)
 * could be (probably) bugs parsing the Objective-C method signatures
 
+Notes:
+===============
+* OBJCHeaderToRubyGenerator.rb uses some Objective-C method calls, so you will need to either run using MacRuby or with the version of ruby included in RubyMotion found in: /Library/RubyMotion/bin/

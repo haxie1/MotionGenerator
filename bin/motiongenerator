@@ -1,0 +1,10 @@
+#!/usr/bin/env macruby
+require "../lib/OBJCHeaderToRubyGenerator.rb"
+
+if ARGV.first
+    file = ARGV[0]
+    dest = ARGV[1]
+    gen = OBJCHeaderToRubyGenerator.new(file, dest)
+    gen.generate
+    exit 0
+end

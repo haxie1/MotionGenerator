@@ -9,6 +9,8 @@ end
 
 if ARGV.first
     
+    useage if ARGV.count != 2
+    
     header = ARGV.first
     usage if header == nil
     dest = ARGV.last

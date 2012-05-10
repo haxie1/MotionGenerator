@@ -3,7 +3,7 @@ require "../lib/OBJCHeaderToRubyGenerator.rb"
 
 def usage
     puts "motiongenerator [path to objective-c header] [path for generated ruby class file]"
-    puts "motiongenerator ~/Project/ObjcProject/Foo.h ~/Project/RubyMotionProject/app"
+    puts "example: motiongenerator ~/Project/ObjcProject/Foo.h ~/Project/RubyMotionProject/app"
     exit 1
 end
 

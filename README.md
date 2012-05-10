@@ -16,7 +16,7 @@ MotionGenerator will take a OBJC header that looks something like:
 
 and turns it into:
 
-class MyViewController < UIViewController #<UITableViewDataSource, UITableViewDelegate>
+class MyViewController \< UIViewController #<UITableViewDataSource, UITableViewDelegate\>
 	attr_accessor :tableView
 	attr_reader :foo
 	

@@ -101,10 +101,3 @@ class OBJCHeaderToRubyGenerator
         return sig + "\n" + "\tend"
     end
 end
-=begin
-
-file = "../RMNib/ViewController.h"
-dest = "./app"
-o = OBJCHeaderToRubyGenerator.new(file, dest)
-o.generate
-=end

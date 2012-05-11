@@ -35,14 +35,16 @@ and turns it into:
 How to use:
 ===============
 * run it from the command line: motiongenerator /path/to/header.h /path/to/rubymotionapp/app
-* require the OBJCHeaderToRubyGenerator.rb class in your project and go nuts.
+* require the MotionGenerator.rb in your project and go nuts.
+* autogeneration is now possible. Run motiongenerator --autogenerate /path/to/header.h /path/to/rubymotionapp/app to have header files automatically converted into Ruby classes.
 
 Gotchas:
 ===============
 * No support for header iVars (yet).
 * protocols defined in the header are not supported (yet)
 * could be (probably) bugs parsing the Objective-C method signatures
+* autogeneration is a work in progress
 
 Notes:
 ===============
-* OBJCHeaderToRubyGenerator.rb uses some Objective-C method calls, so you will need to either run using MacRuby or with the version of ruby included in RubyMotion found in: /Library/RubyMotion/bin/
+* MotionGenerator.rb uses some Objective-C method calls, so you will need to either run using MacRuby or with the version of ruby included in RubyMotion found in: /Library/RubyMotion/bin/

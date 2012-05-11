@@ -20,7 +20,7 @@ module MotionGenerator
                     header = File.join(dir, file)
                     mtime = File.new(header).mtime.tv_sec
                     diff = modTime - mtime
-                    if diff <= 1.0 #we will consider files up to 2 seconds different in mod times as being "changed"
+                    if diff <= 1.0 #we will consider files up to 1 second different in mod times as being "changed"
                         changedFiles << header
                     end
                 end

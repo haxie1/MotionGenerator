@@ -1,22 +1,46 @@
 #!/usr/bin/env macruby
-require "../lib/OBJCHeaderToRubyGenerator.rb"
+$LOAD_PATH.unshift File.expand_path(File.join(File.dirname(__FILE__), "../lib"))
+require 'MotionGenerator'
 
 def usage
-    puts "motiongenerator [path to objective-c header] [path for generated ruby class file]"
+    puts ""
+    puts "motiongenerator [options] [path to objective-c header] [path for generated ruby class file]"
+    puts ""
+    puts "options:"
+    puts "--autogenerate -watches the parent directory of the header for changes and then autogenerates the ruby classses. \n\t\tCan also just pass the path to a XCode project directory"
+    puts ""
     puts "example: motiongenerator ~/Project/ObjcProject/Foo.h ~/Project/RubyMotionProject/app"
+    puts "example: motiongenerator --autogenerate ~/Project/ObjcProject/Foo.h ~/Project/RubyMotionProject/app"
+    puts ""
     exit 1
 end
 
-if ARGV.first
-    
-    useage if ARGV.count != 2
-    
-    header = ARGV.first
-    usage if header == nil
-    dest = ARGV.last
-    usage if dest == nil
-    
-    gen = OBJCHeaderToRubyGenerator.new(header, dest)
-    gen.generate
-    exit 0
+usage if ARGV.count < 2
+
+arg1 = ARGV.shift
+usage if arg1 == nil
+
+autogen = (arg1 == "--autogenerate" ? true : false)
+if ! autogen
+    header = arg1 
+else 
+    header = ARGV.shift
 end
+puts "header: #{header}"
+dest = ARGV.shift
+usage if dest == nil
+
+if autogen
+    if header.pathExtension == "h"
+        header = File.dirname(header)
+    end
+    MotionGenerator.autogenerate(header, dest)
+else 
+    MotionGenerator.generate(header, dest)
+end
+
+    
+
+    
+exit 0
+
